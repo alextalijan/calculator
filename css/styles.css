@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body,
+.calculator,
+.row {
+    display: flex;
+}
+
+body,
+.calculator {
+    flex-direction: column;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    min-width: 500px;
+    min-height: 700px;
+    border: 3px solid gray;
+    gap: 20px;
+    padding: 20px;
+}
+
+.calculator > *,
+.row > * {
+    flex: 1;
+}
+
+.row {
+    gap: 10px;
+}
+
+.display {
+    height: 40px;
+    border: 1px solid black;
+}
+
+.row > button {
+    font-size: 50px;
+}
+
+h1 {
+    font-size: 50px;
+    margin: 40px auto;
+}
