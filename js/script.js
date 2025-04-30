@@ -50,10 +50,10 @@ operatorButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
         // If an operation has already been selected, switch it to the new one
         if (operations.includes(calculatorDisplay.textContent[calculatorDisplay.textContent.length - 2])) {
-            calculatorDisplay.textContent = calculatorDisplay.textContent.slice(0, -2) + ` ${event.target.textContent} `;
-        } // Else if the display doesn't already contain an operator, show it on the display 
-        else if (!(calculatorDisplay.textContent.includes(operations[0]) || calculatorDisplay.textContent.includes(operations[1]) ||
-        calculatorDisplay.textContent.includes(operations[2]) || calculatorDisplay.textContent.includes(operations[3]))) {
+            calculatorDisplay.textContent = calculatorDisplay.textContent.slice(0, -2) + ` ${event.target.textContent} `; 
+        } // Else calculate the result of the current expression and start a new one
+        else {
+            equalsButton.click();
             calculatorDisplay.textContent += ` ${event.target.textContent} `;
         }
     });
@@ -65,10 +65,11 @@ clearButton.addEventListener("click", () => {
 
 // When equals button is clicked, show the result on the display
 equalsButton.addEventListener("click", () => {
-    const expression = calculatorDisplay.textContent.split(' ');
+    // Filter out empty spaces in the display
+    const expression = calculatorDisplay.textContent.split(' ').filter((element) => element != '');
 
     // If full expression was provided show the result
-    if (expression.length === 3 && expression[2] != '') {
+    if (expression.length === 3) {
         calculatorDisplay.textContent = operate(+expression[0], expression[1], +expression[2]);
     }
 });
