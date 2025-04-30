@@ -6,7 +6,8 @@
 
 body,
 .calculator,
-.row {
+.row,
+.display {
     display: flex;
 }
 
@@ -41,6 +42,9 @@ body {
 .display {
     height: 40px;
     border: 1px solid black;
+    align-items: center;
+    font-size: 40px;
+    padding-left: 20px;
 }
 
 .row > button {
