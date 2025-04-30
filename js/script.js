@@ -14,7 +14,7 @@ function divide(dividend, divisor) {
     return dividend / divisor;
 }
 
-function operate(operator, firstNumber, secondNumber) {
+function operate(firstNumber, operator, secondNumber) {
     // Based on the operator inputed, perform the proper operation
     switch(operator) {
         case '+':
@@ -61,4 +61,14 @@ operatorButtons.forEach((button) => {
 
 clearButton.addEventListener("click", () => {
     calculatorDisplay.textContent = '';
+});
+
+// When equals button is clicked, show the result on the display
+equalsButton.addEventListener("click", () => {
+    const expression = calculatorDisplay.textContent.split(' ');
+
+    // If full expression was provided show the result
+    if (expression.length === 3 && expression[2] != '') {
+        calculatorDisplay.textContent = operate(+expression[0], expression[1], +expression[2]);
+    }
 });
