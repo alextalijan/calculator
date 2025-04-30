@@ -51,8 +51,8 @@ operatorButtons.forEach((button) => {
         // If an operation has already been selected, switch it to the new one
         if (operations.includes(calculatorDisplay.textContent[calculatorDisplay.textContent.length - 2])) {
             calculatorDisplay.textContent = calculatorDisplay.textContent.slice(0, -2) + ` ${event.target.textContent} `; 
-        } // Else calculate the result of the current expression and start a new one
-        else {
+        } // Else if the display is not empty, calculate the result of the current expression and start a new one
+        else if (calculatorDisplay.textContent != '') {
             equalsButton.click();
             calculatorDisplay.textContent += ` ${event.target.textContent} `;
         }
