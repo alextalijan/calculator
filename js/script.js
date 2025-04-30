@@ -51,7 +51,9 @@ operatorButtons.forEach((button) => {
         // If an operation has already been selected, switch it to the new one
         if (operations.includes(calculatorDisplay.textContent[calculatorDisplay.textContent.length - 2])) {
             calculatorDisplay.textContent = calculatorDisplay.textContent.slice(0, -2) + ` ${event.target.textContent} `;
-        } else {
+        } // Else if the display doesn't already contain an operator, show it on the display 
+        else if (!(calculatorDisplay.textContent.includes(operations[0]) || calculatorDisplay.textContent.includes(operations[1]) ||
+        calculatorDisplay.textContent.includes(operations[2]) || calculatorDisplay.textContent.includes(operations[3]))) {
             calculatorDisplay.textContent += ` ${event.target.textContent} `;
         }
     });
