@@ -99,3 +99,16 @@ dotButton.addEventListener("click", () => {
         calculatorDisplay.textContent += '.';
     }
 });
+
+// Depending on the button clicked, perform a proper function
+document.addEventListener("keydown", (event) => {
+    switch(event.key) {
+        case "Backspace":
+            // If the last move was an operator, delete all three spaces associated with it, else just the last one
+            if (operations.includes(calculatorDisplay.textContent.split(' ').filter(element => element != '')[calculatorDisplay.textContent.split(' ').filter(element => element != ''). length - 1])) {
+                calculatorDisplay.textContent = calculatorDisplay.textContent.slice(0, -3);
+            } else {
+                calculatorDisplay.textContent = calculatorDisplay.textContent.slice(0, -1);
+            }
+    }
+});
