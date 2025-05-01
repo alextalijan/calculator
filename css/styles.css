@@ -55,11 +55,16 @@ body {
     padding-left: 20px;
     font-family: Calculator;
     background-color: #E6E6E6;
+    max-width: 450px;
 }
 
 .row > button {
     font-size: 50px;
     border-radius: 10px;
+}
+
+.row > button:hover {
+    background-color: #FFFFC5;
 }
 
 h1 {

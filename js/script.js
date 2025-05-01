@@ -134,7 +134,7 @@ document.addEventListener("keydown", (event) => {
             });
             break;
 
-        case "Enter":
+        case "=":
             equalsButton.click();
             break;
 
