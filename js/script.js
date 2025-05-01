@@ -27,7 +27,12 @@ function operate(firstNumber, operator, secondNumber) {
             return multiply(firstNumber, secondNumber);
 
         case '/':
-            return divide(firstNumber, secondNumber);
+            // If the user tries to divide with 0, stop them from doing so
+            if (secondNumber === 0) {
+                alert("Oh, no, no... Please don't divide by 0.");
+            } else {
+                return divide(firstNumber, secondNumber);
+            }
     }
 }
 
@@ -54,7 +59,10 @@ operatorButtons.forEach((button) => {
         } // Else if the display is not empty, calculate the result of the current expression and start a new one
         else if (calculatorDisplay.textContent != '') {
             equalsButton.click();
-            calculatorDisplay.textContent += ` ${event.target.textContent} `;
+            // If the user hasn't tried to divide by zero, add the operator
+            if (calculatorDisplay.textContent != '') {
+                calculatorDisplay.textContent += ` ${event.target.textContent} `;
+            }
         }
     });
 });
