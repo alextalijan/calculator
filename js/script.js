@@ -7,11 +7,11 @@ function subtract(minuend, subtrahend) {
 }
 
 function multiply(factor, multiplier) {
-    return factor * multiplier;
+    return Math.round(factor * multiplier * 1000) / 1000;
 }
 
 function divide(dividend, divisor) {
-    return dividend / divisor;
+    return Math.round(dividend / divisor * 1000) / 1000;
 }
 
 function operate(firstNumber, operator, secondNumber) {

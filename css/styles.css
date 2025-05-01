@@ -63,11 +63,27 @@ body {
     border-radius: 10px;
 }
 
-.row > button:hover {
-    background-color: #FFFFC5;
+button:hover {
+    background-color: rgb(210, 210, 210);
 }
 
 h1 {
     font-size: 50px;
     margin: 40px auto;
+}
+
+.operator {
+    background-color: #ee9d25;
+}
+
+.operator:hover {
+    background-color: #d6891f;
+}
+
+.clear-screen {
+    background-color: #90EE90;
+}
+
+.clear-screen:hover {
+    background-color: #76c76a;
 }
