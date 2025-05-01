@@ -90,3 +90,12 @@ equalsButton.addEventListener("click", () => {
         isResult = true;
     }
 });
+
+const dotButton = document.querySelector(".dot");
+dotButton.addEventListener("click", () => {
+    const displayElements = calculatorDisplay.textContent.split(' ').filter(element => element != '');
+    // If the current number doesn't already contain a dot or isn't an operator, add dot to the display
+    if (!(operations.includes(displayElements[displayElements.length - 1]) || displayElements[displayElements.length - 1].includes('.'))) {
+        calculatorDisplay.textContent += '.';
+    }
+});
