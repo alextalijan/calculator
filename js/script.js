@@ -100,7 +100,7 @@ dotButton.addEventListener("click", () => {
     }
 });
 
-// Depending on the button clicked, perform a proper function
+// Support for keyboard usage
 document.addEventListener("keydown", (event) => {
     switch(event.key) {
         case "Backspace":
@@ -110,5 +110,47 @@ document.addEventListener("keydown", (event) => {
             } else {
                 calculatorDisplay.textContent = calculatorDisplay.textContent.slice(0, -1);
             }
+            break;
+
+        case '.':
+            dotButton.click();
+            break;
+
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '0':
+            digitButtons.forEach((button) => {
+                // For each button, if its text matches the button on the keyboard, perform a click on that button
+                if (button.textContent === event.key) {
+                    button.click();
+                }
+            });
+            break;
+
+        case "Enter":
+            equalsButton.click();
+            break;
+
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+            operatorButtons.forEach(button => {
+                if (button.textContent === event.key) {
+                    button.click();
+                }
+            });
+            break;
+
+        case " ":
+            clearButton.click();
+            break;
     }
 });
