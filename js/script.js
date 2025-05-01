@@ -45,6 +45,11 @@ const calculatorDisplay = document.querySelector(".display");
 
 digitButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
+        // If the display just showed the result and there's not an operator, clear the display first before new digits
+        if (isResult && !operations.includes(calculatorDisplay.textContent.split(' ').filter(element => element != '')[1])) {
+            clearButton.click();
+            isResult = false;
+        }
         calculatorDisplay.textContent += event.target.textContent;
     });
 });
@@ -71,6 +76,8 @@ clearButton.addEventListener("click", () => {
     calculatorDisplay.textContent = '';
 });
 
+let isResult = false;
+
 // When equals button is clicked, show the result on the display
 equalsButton.addEventListener("click", () => {
     // Filter out empty spaces in the display
@@ -79,5 +86,7 @@ equalsButton.addEventListener("click", () => {
     // If full expression was provided show the result
     if (expression.length === 3) {
         calculatorDisplay.textContent = operate(+expression[0], expression[1], +expression[2]);
+        // Let the browser know that a result has been shown
+        isResult = true;
     }
 });
